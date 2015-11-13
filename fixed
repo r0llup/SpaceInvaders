@@ -1,0 +1,33 @@
+fixed
+-----
+
++ threadTimeOutDep : plus besoin de deplacementOn également (si ?)
++ fctThreadScore : affichage differents si on joue seul ou à deux
++ fctThreadInvaders : réécriture du code quand l'invasion de la terre est réussie (1 ou deux joueurs)
++ DeplacerFlotte : pas de mutexListeMissiles sur les appels lignes 1600 et 1633
++ fctThreadBombe : pas de mutexListeMissiles sur les appels lignes 1074
++ fctThreadVaisseauAmiral : pas de mutexListeMissiles sur les appels lignes 1238 1286
++ DeplacerFlotte : mutexListeMissiles à la place de mutexListeBombes sur les appels lignes 1616
++ fctThreadVaisseauAmiral : attribution des points
++ Main : libération de la variable spécifique lors d'un SIGQUIT pour un canon
+mais on oublie de refaire une allocation mémoire pour le canon suivant
++ freeSpecificZone : ajout d'un masque sur le signal SIGALRM
++ pickUpAlien : Arithmetic Exception (core dumped).
+division par zero via modulo. vérification des valeurs nulles.
+Segmentation Fault (core dumped)
+
+tofix
+-----
+
++ AlienMalade Exception (core dumped ;-)
++ ProgQuiNeRepondPlus Exception (core dumped ;)
++ FlotteMalade Exception (core dumped ;-)
+
+brainstorming
+-------------
+
++ Dans deplacerFlotte quand un alien touche un missile est-ce que lh, lb, cg, cd sont mit à jour ?
++ Idem pour threadMissile ?
++ Quand l'invasion alien est réussie doit-on remettre la vie des joueurs à 3 ou à 0 ?
++ Doit on faire quelque chose quand un missile choppe une bombe sachant
+qu'une bombe réagit déjà quand elle choppe un missile ?
